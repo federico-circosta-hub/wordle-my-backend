@@ -18,5 +18,5 @@ def api_check_word():
         return jsonify({"error": "Missing word_attempt in request body"}), 400
     result = check_word(word_attempt)
     response = jsonify(result)
-    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000/')
+    response.headers['Access-Control-Allow-Origin'] = '*'
     return response
