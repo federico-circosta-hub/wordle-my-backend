@@ -10,7 +10,7 @@ def init():
     word = get_word()
     return jsonify(word["day"])
 
-@bp.route("/check_word", methods=['POST'])
+@bp.route("/check_word", methods=['POST','OPTIONS'])
 def api_check_word():
     get_word()
     word_attempt = request.json.get('word_attempt')
