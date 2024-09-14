@@ -9,12 +9,12 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/api/init"
+      "dest": "routes/routes.py"
     },
     {
       "src": "/check_word",
       "methods": ["POST"],
-      "dest": "/api/check_word"
+      "dest": "routes/routes.py"
     }
   ]
 }
