@@ -1,4 +1,4 @@
-from flask import Flask # type: ignore
+from flask import Flask
 from routes.routes import bp
 
 app = Flask("wordle")

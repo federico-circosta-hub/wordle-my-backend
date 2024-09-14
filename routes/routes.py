@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request # type: ignore
+from flask import Blueprint, jsonify, request
 from services.word_services import get_word, check_word
 from flask_cors import CORS
 
