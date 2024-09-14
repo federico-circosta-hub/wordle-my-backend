@@ -10,6 +10,10 @@ def init():
 
 @bp.route("/check_word", methods=['POST','OPTIONS'])
 def api_check_word():
+    if request.method == 'OPTIONS':
+        response = jsonify({"message": "CORS preflight response"})
+        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        return response, 200
     get_word()
     word_attempt = request.json.get('word_attempt')
     if not word_attempt:
