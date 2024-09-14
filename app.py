@@ -4,5 +4,5 @@ from routes.routes import bp
 app = Flask("wordle")
 app.register_blueprint(bp)
 
-if __name__ == "wordle_routes":
+if __name__ == "__main__":
     app.run()
