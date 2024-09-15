@@ -1,14 +1,14 @@
 from flask import Blueprint, jsonify, request
 from services.word_services import get_word, check_word
 
-bp = Blueprint('wordle_routes', __name__)
+bp = Blueprint("wordle-my", __name__)
 
 @bp.route("/")
 def init():
     word = get_word()
     return jsonify(word["day"])
 
-@bp.route("/api/check_word", methods=("GET",'POST', "OPTIONS"))
+@bp.route("/check_word", methods=("GET","POST", "OPTIONS"))
 def api_check_word():
     print("here from check_word()")
     if request.method == 'OPTIONS':
