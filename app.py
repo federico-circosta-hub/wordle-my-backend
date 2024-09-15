@@ -6,7 +6,7 @@ app = Flask("wordle")
 
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-app.register_blueprint(bp)
+app.register_blueprint(bp, url_prefix='/api')
 
 if __name__ == "__main__":
     app.run()
