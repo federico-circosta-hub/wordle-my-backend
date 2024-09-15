@@ -6,15 +6,5 @@
       "use": "@vercel/python"
     }
   ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "app.py"
-    },
-    {
-      "src": "/check_word",
-      "methods": ["POST"],
-      "dest": "app.py"
-    }
-  ]
+  "routes": [{ "src": "/(.*)", "dest": "app.py" }]
 }
