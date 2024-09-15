@@ -8,7 +8,7 @@ def init():
     word = get_word()
     return jsonify(word["day"])
 
-@bp.route("/check_word", methods=('POST', "OPTIONS"))
+@bp.route("/check_word", methods=("GET",'POST', "OPTIONS"))
 def check_word():
     print("here from check_word()")
     if request.method == 'OPTIONS':
