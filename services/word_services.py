@@ -7,6 +7,7 @@ def get_word():
     if word["day"] < datetime.now().date():
         word["value"] = get_random_word()
         word["day"] = datetime.now().date()
+    print("get_word called, word: ", word["day"], word["value"] )
     return word
 
 def get_random_word():
