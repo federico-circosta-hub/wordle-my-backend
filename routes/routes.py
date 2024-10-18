@@ -1,10 +1,12 @@
 from flask import Blueprint, jsonify, request
 from services.word_services import get_word, check_word
+from datetime import datetime
 
 bp = Blueprint("wordle-my", __name__)
 
 @bp.route("/")
 def init():
+    print("datetime.now()",datetime.now())
     word = get_word()
     return jsonify(word["day"])
 
