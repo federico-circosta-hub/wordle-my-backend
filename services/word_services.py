@@ -1,4 +1,7 @@
 from datetime import datetime
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+from base64 import b64encode
 
 start_date = datetime(2020, 1, 1)
 total_words = 3480
@@ -17,6 +20,11 @@ def calulate_word_of_the_day():
     with open('shuffled_five_letter_words.txt', 'r') as file:
         words = file.readlines()
     return words[index].strip()
+
+def is_valid_word(s):
+    with open('shuffled_five_letter_words.txt', 'r') as file:
+        words = file.readlines()
+    return s in [word.strip() for word in words]
 
 def check_word(word_attempt):
     print("word_attempt", word_attempt)
@@ -53,4 +61,11 @@ def total_days_since_start(start_date, current_date):
     return total_days
 
 def map_day_to_number(total_days, max_number):
-    return total_days % max_number 
+    return total_days % max_number
+
+def encrypt_string(plain_text, SECRET_KEY):
+    cipher = AES.new(SECRET_KEY, AES.MODE_CBC)
+    ct_bytes = cipher.encrypt(pad(plain_text.encode('utf-8'), AES.block_size))
+    iv = b64encode(cipher.iv).decode('utf-8')
+    ct = b64encode(ct_bytes).decode('utf-8')
+    return {'iv': iv, 'ciphertext': ct}
