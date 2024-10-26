@@ -1,5 +1,4 @@
 Flask
 flask-cors
-dotenv
-Crypto
-base64
+pycryptodome
+python-dotenv
